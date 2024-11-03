@@ -1,0 +1,15 @@
+create private key: run python createPrivate.py
+run python pemToJwk.py
+set the public key into certs/techsee-jwk.json (create file if not exists)
+in docker-compose.yml, set
+      - --token.machine=localhost
+      - --ndt7.token.required=true
+      - --token.verify-key=/certs/techsee-jwk.json
+
+after this line:  - -prometheusx.listen-address=:9990
+then create a token with the private key and set it in the client for testing puproses you can use
+https://joaoalmeida.outsystemscloud.com/JWT_Demo/GenerateToken_JWK.aspx?(Not.Licensed.For.Production)=
+
+make sure issuer is locate and Audience is localhost and set the private key in "JSON Web Key" field
+
+put the token in the client and run the client

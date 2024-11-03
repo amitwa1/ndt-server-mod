@@ -44,6 +44,10 @@ services:
       - -ndt7_addr_cleartext=:8080
       - -compress-results=false
       - -prometheusx.listen-address=:9990
+      - --token.machine=localhost
+      - --ndt7.token.required=true
+      - --token.verify-key=/certs/techsee-jwk.json
+
 
   jostler:
     image: measurementlab/jostler:v1.0.7
